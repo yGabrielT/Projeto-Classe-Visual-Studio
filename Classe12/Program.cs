@@ -46,5 +46,40 @@ namespace Classe12
             return int.Parse(Console.ReadLine());
         }
 
+        public static Pessoa cadastrarPessoa()
+        {
+            Console.Clear();
+            Console.Write("Digite o nome da pessoa: "); string n = Console.ReadLine();
+            Console.Write("Digite a idade de {0} ", n); int i = int.Parse(Console.ReadLine());
+            Console.Write("Digite as altura de {0}: ", n); double a = double.Parse(Console.ReadLine());
+            Console.Write("Digite a letra correspondente ao sexo (F/M): ");
+            char s = char.Parse(Console.ReadLine());
+
+            return new Pessoa(n, i, a, s);
+        }
+
+        public static void listarPessoa(Pessoa[] ps, int cp)
+        {
+            Console.Clear();
+            Console.WriteLine("\n\n*** Dados da Pessoa ***\n");
+            for (int x = 0; x < cp; x++)
+                Console.WriteLine(ps[x].ToString());
+        }
+
+        public static void exibirMediaPesoIdeal(Pessoa[] p, string sx, int t)
+        {
+            double soma = 0;
+            int cont = 0;
+            for (int x = 0; x < t; x++)
+            {
+                if ((p[x].Sexo).Equals(sx))
+                {
+                    soma += p[x].calcularPesoIdeal();
+                    cont++;
+                }
+            }
+            Console.WriteLine("Média do peso ideal - {0}: {1} ", sx, soma / cont);
+        }
+
     }
 }

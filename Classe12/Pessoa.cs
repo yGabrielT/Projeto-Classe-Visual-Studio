@@ -28,9 +28,9 @@ namespace Classe12
             Sexo = sexo.ToString();
         }
         public string Nome
-        { 
-          get { return nome; } 
-          set { nome = value; }
+        {
+            get { return nome; }
+            set { nome = value; }
         }
         public int Idade
         {
@@ -47,11 +47,23 @@ namespace Classe12
             get { return sexo; }
             set { sexo = value.ToUpper() == "M" ? "MASCULINO" : "FEMININO"; }
         }
+        public double calcularPesoIdeal()
+        {
+            if (sexo.Equals("MASCULINO"))
+                return (72.7 * altura) - 58;
+            else
+                return (62.1 * altura) - 44.7;
+        }
+        public override string ToString()
+        {
+            return (String.Format("Nome: {0} \n Idade: {1} \n Altura: {2} \n Sexo: {3} \n", nome, idade, altura, sexo));
+        }
 
 
 
 
 
+    }
 }
 
 
